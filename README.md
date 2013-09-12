@@ -7,7 +7,7 @@ Instructions
 ------------
 
 1. Clone or download the github repository to you local computer. 
-2. Copy your AWS credentials ("AWS.properties") file and your private key to the main folder. 
+2. Copy your AWS credentials ("AwsCredentials.properties") file and your private key to the main folder. 
 3. Open Matlab and navigate to the main folder. 
 4. In mlepAwsInit.m add the path to your credentials file and private key pair. Save the file.
 5. Run mlepAwsInit.m. 
