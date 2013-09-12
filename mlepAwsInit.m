@@ -1,60 +1,53 @@
-% mlepAwsInit
-% This initializes MLE+/AWS environment
+% This script sets up the environment for MLE+AWS.
+% It should be modified to include the path to your AWS credentials and the
+% path to your private key. Eventually, the code will generate private
+% keys to dispatch instances. 
+% Run this script once before using any MLE+AWS functions.
+%
+% (C) 2013 by Willy Bernal (willyg@seas.upenn.edu)
+
+% History: 
+% Created: 2013-09-11 by Willy Bernal
+
+% Credentials Path
+%credPath = '/YOUR/CREDENTIALS/PATH';
+credPath = 'C:\Users\mlab\Documents\GitRepository\AWS-MLEP\AwsCredentials.properties';
+
+% Private Key Path
+%keyPath = '/YOUR/PRIVATE/KEY/PATH';
+keyPath = 'C:\Users\mlab\Documents\GitRepository\AWS-MLEP\EnergyPluskey.pem';
+
+% Private Key Path
+%secGroup = 'YOUR SECURITY GROUP NAME';
+secGroup = 'mlepSecurityGroup2';
+
+% Number of Instances
+noOfInstance = 2;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DO NOT MODIFY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% MLEP-AWS HOME 
+fullname = mfilename('fullpath');
+[direc, ~, ~ ]= fileparts(fullname);
+cd(direc);
+
+% JAVA CLASSPATH
+addJavaPath([direc filesep 'lib']);
+
+% JAVA IMPORT
+importJava();
 
 global MLEPAWSSETTINGS
 
-% Credentials Path
-credPath = 'YOUR CREDENTIALS PATH';
-credPath = 'TaoAwsCredentials.properties'
-% Private Key Path
-keyPath = 'YOUR PRIVATE KEY PATH';
-keyPath = 'initial.pem'
-noOfInstance = 2;
-%% DO NOT MODIFY 
+% MLEPAWSSAETTINGS
+MLEPAWSSETTINGS = struct(...
+    'homePath', direc,...   % Home Path
+    'credPath', credPath,...   % Path to your AWS credentials
+    'keyPath', keyPath...   % Path to the key pair file
+    );
 
-% AWS Home Path
-fullname = mfilename('fullpath');
-[direc, ~, ~ ]= fileparts(fullname);
-MLEPAWSSETTINGS.homePath = direc;
-
-% Credentials Path
-MLEPAWSSETTINGS.credPath = credPath;
-
-% Private Key Path
-MLEPAWSSETTINGS.keyPath = keyPath;
-
-% JAVA CLASSPATH
-root = [MLEPAWSSETTINGS.homePath filesep 'lib'];
-javaPath = dir([root filesep '*.jar']);
- 
-for i = 1:length(javaPath)
-   javaaddpath([root filesep javaPath(i).name]); 
-end
-
-% % JAVA IMPORT
-% import java.io.*;
-% import java.util.*;
-% 
-% % Import Jsch
-% import com.jcraft.jsch.ChannelSftp;
-% import com.jcraft.jsch.JSch;
-% import com.jcraft.jsch.Session;
-% 
-% % Import AWS
-% import com.amazonaws.AmazonServiceException;
-% import com.amazonaws.auth.AWSCredentials;
-% import com.amazonaws.auth.PropertiesCredentials;
-% import com.amazonaws.services.ec2.AmazonEC2;
-% import com.amazonaws.services.ec2.AmazonEC2Client;
-% import com.amazonaws.services.ec2.model.*;
-% import com.amazonaws.services.s3.*;
-% import com.amazonaws.services.simpledb.*;
-% import com.amazonaws.*;
-% import com.amazonaws.services.ec2.AmazonEC2Client;
-% import org.apache.http.client.methods.HttpUriRequest;
-
-
-
-
+addpath(MLEPAWSSETTINGS.homePath);
+addpath([MLEPAWSSETTINGS.homePath filesep 'lib']);
+addpath([MLEPAWSSETTINGS.homePath filesep 'core']);
+savepath;
 
 
