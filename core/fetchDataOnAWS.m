@@ -5,14 +5,16 @@ if matlabpool('size') == 0
     matlabpool(instanceInfo.instCount);
 end
 
-if ~isdir('OutputCSV')
-   mkdir('OutputCSV'); 
+if exist('OutputCSV', 'dir')
+    rmdir('OutputCSV', 's');
 end
+mkdir('OutputCSV');
+
 lfile = 'OutputCSV/.';
 rfile = '/home/ubuntu/mlep/simulation/out/*.csv';
 
 parfor i = 1:instanceInfo.instCount
-    cmd = ['scp -r -i '  keyName ' ubuntu@' strtrim(instanceInfo.pubDNSName(i,:)) ':' rfile ' ' lfile ]; 
+    cmd = ['scp -r -i '  keyName ' ubuntu@' strtrim(instanceInfo.pubDNSName(i,:)) ':' rfile ' ' lfile ];
     [stastus, msg] = system(cmd, '-echo');
     
 end

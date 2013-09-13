@@ -20,10 +20,4 @@ ep.initEC2Client();
 numOfInst = 6;
 ep.initAWSInstance(numOfInst);
 
-% %The authenticity of host if run for the first time, need manual input
-% for i = 1:numOfInst
-%     lfile = '.';
-%     rfile = '/home/ubuntu/mlep/Test1/Output/*.csv';
-%     cmd = ['scp -r -i '  keyName ' ubuntu@' strtrim(EC2_info.pubDNSName(i,:)) ':' rfile ' ' lfile ];
-%     [stastus, msg] = system(cmd, '-echo');
-% end
+

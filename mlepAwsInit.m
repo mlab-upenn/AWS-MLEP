@@ -9,15 +9,15 @@
 % History: 
 % Created: 2013-09-11 by Willy Bernal
 
-% Credentials Path
+% Credentials Path (Full Path to your Credentials)
 %credPath = '/YOUR/CREDENTIALS/PATH';
 credPath = '/Users/willyg/Documents/Git/AWS-MLEP/AwsCredentials.properties';
 
-% Private Key Path
+% Private Key Path (Full Path to your key)
 %keyPath = '/YOUR/PRIVATE/KEY/PATH';
 keyPath = '/Users/willyg/Documents/Git/AWS-MLEP/EnergyPlusKey.pem';
 
-% Private Key Path
+% Security Group Name
 %secGroup = 'YOUR SECURITY GROUP NAME';
 secGroup = 'mlepSecurityGroup2';
 

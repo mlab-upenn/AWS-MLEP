@@ -1,18 +1,29 @@
-function [ amazonEC2Client ] = pushToAWS( filepath, amazonEC2Client,instanceInfo, keyName )
+function [indMap] = pushToAWS( filepath, amazonEC2Client,instanceInfo, keyName )
 %PUSHTOAWS Summary of this function goes here
 %   Detailed explanation goes here
 
 allFiles = dir([filepath filesep '*.idf']);
 files = {allFiles.name};
 for i = 1:instanceInfo.instCount
-    mkdir(['idfs' num2str(i)]);
+    dirName = ['idfs' num2str(i)];
+    if exist(dirName,'dir')
+        rmdir(dirName, 's');
+    end
+    mkdir(dirName);
 end
 
+% Create Vector of Files with their corresponding Instances
+indMap = repmat([1:instanceInfo.instCount], 1, 100);
+indMap = indMap(1:size(files,2));
+indMap = sort(indMap);
+
+% Copy Files to their Instances
 noOfFiles = size(files,2);
 for i = 1:noOfFiles
-   copyfile(['idfs/' files{i}],['idfs' num2str(mod(str2double(files{i}(1:end-4)),instanceInfo.instCount)+1)])
+   copyfile(['idfs' filesep files{i}],['idfs' num2str(indMap(i)) filesep files{i}]);% ,instanceInfo.instCount)+1)
     
 end
+
 % keyName = 'initial.pem';
 if matlabpool('size') == 0
     matlabpool(instanceInfo.instCount)
@@ -31,14 +42,3 @@ parfor i = 1:instanceInfo.instCount
     
 end
 end
-% % remove from aws
-% instanceInfo = EC2_info;
-% for i = 1:instanceInfo.instCount
-%    cmd = 'rm -r /home/ubuntu/mlep/simulation';
-%    sendCommand(amazonEC2Client, instanceInfo.pubDNSName(i,:), cmd);
-% end
-% 
-% lfile = '.';
-% rfile = '/home/ubuntu/mlep/Test1/Output/*.csv'
-% cmd = ['scp -r -i '  keyName ' ubuntu@' strtrim(instanceInfo.pubDNSName(2,:)) ':' rfile ' ' lfile ];
-% [stastus, msg] = system(cmd, '-echo');

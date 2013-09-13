@@ -24,6 +24,7 @@ classdef mlepAwsProcess < handle
         credPath = {}; % Arguments to the client program
         accKey = {};
         secKey ={};
+        indMap = [];
         status = 0;
         msg = '';
     end
@@ -109,7 +110,7 @@ classdef mlepAwsProcess < handle
         end
         %%==============================================================
         function status = pushToAWS(obj, dirName)
-            pushToAWS(dirName, obj.ec2Client, obj.ec2Info, obj.keyPath);
+            [obj.indMap] = pushToAWS(dirName, obj.ec2Client, obj.ec2Info, obj.keyPath);
             status = 0;
         end
         %%==============================================================
