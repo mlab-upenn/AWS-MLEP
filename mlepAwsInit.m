@@ -11,18 +11,16 @@
 
 % Credentials Path
 %credPath = '/YOUR/CREDENTIALS/PATH';
-credPath = 'C:\Users\mlab\Documents\GitRepository\AWS-MLEP\AwsCredentials.properties';
+credPath = '/Users/willyg/Documents/Git/AWS-MLEP/AwsCredentials.properties';
 
 % Private Key Path
 %keyPath = '/YOUR/PRIVATE/KEY/PATH';
-keyPath = 'C:\Users\mlab\Documents\GitRepository\AWS-MLEP\EnergyPluskey.pem';
+keyPath = '/Users/willyg/Documents/Git/AWS-MLEP/EnergyPlusKey.pem';
 
 % Private Key Path
 %secGroup = 'YOUR SECURITY GROUP NAME';
 secGroup = 'mlepSecurityGroup2';
 
-% Number of Instances
-noOfInstance = 2;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DO NOT MODIFY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % MLEP-AWS HOME 
@@ -42,7 +40,8 @@ global MLEPAWSSETTINGS
 MLEPAWSSETTINGS = struct(...
     'homePath', direc,...   % Home Path
     'credPath', credPath,...   % Path to your AWS credentials
-    'keyPath', keyPath...   % Path to the key pair file
+    'keyPath', keyPath,...   % Path to the key pair file
+    'secGroup', secGroup...   % Path to the key pair file
     );
 
 addpath(MLEPAWSSETTINGS.homePath);

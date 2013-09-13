@@ -19,6 +19,7 @@ classdef mlepAwsProcess < handle
     properties
         ec2Client = [];
         ec2Info = [];
+        secGroup = {};
         keyPath = {}; % Arguments to the client program
         credPath = {}; % Arguments to the client program
         accKey = {};
@@ -86,6 +87,12 @@ classdef mlepAwsProcess < handle
             msg = '';
         end
         %%==============================================================
+        function [status, msg, amazonEC2Client] = initAWSInstance(obj, numInst)
+            for i=1:numInst
+                initAWSInstance(obj.ec2Client, obj.keyPath, obj.secGroup);
+            end
+        end         
+        %%==============================================================
         function [status, msg, EC2_info] = getAWSInstanceInfo(obj)
             [~, EC2_info] = getAWSInstanceInfo(obj.ec2Client);
             obj.ec2Info = EC2_info;
@@ -95,7 +102,7 @@ classdef mlepAwsProcess < handle
         %%==============================================================
         function removeFolderOnAws(obj)
             if ~isempty(obj.ec2Info)
-                obj.ec2Client = removeFolderOnAWS(obj.ec2Client, obj.ec2Info);
+                obj.ec2Client = removeFolderOnAWS(obj.ec2Client, obj.ec2Info, obj.keyPath);
             else
                 error('Need to call first getAWSInstanceInfo');
             end
@@ -107,17 +114,17 @@ classdef mlepAwsProcess < handle
         end
         %%==============================================================
         function status = runSimulationOnAWS(obj)
-            obj.ec2Client = runSimulationOnAWS(obj.ec2Client, obj.ec2Info);
+            obj.ec2Client = runSimulationOnAWS(obj.ec2Client, obj.ec2Info, obj.keyPath);
             status = 0;
         end
         %%==============================================================
         function status = moveFileOnAWS(obj)
-            obj.ec2Client = moveFileOnAWS(obj.ec2Client, obj.ec2Info);
+            obj.ec2Client = moveFileOnAWS(obj.ec2Client, obj.ec2Info, obj.keyPath);
             status = 0;
         end
         %%==============================================================
         function fetchDataOnAWS(obj)
-            obj.ec2Client = fetchDataOnAWS(obj.ec2Client, obj.ec2Info);
+            obj.ec2Client = fetchDataOnAWS(obj.ec2Client, obj.ec2Info, obj.keyPath);
         end
         %%==============================================================
         function delete(obj)
@@ -166,6 +173,11 @@ classdef mlepAwsProcess < handle
                 obj.credPath = MLEPAWSSETTINGS.credPath;
             end
             
+            if noSettings || ~isfield(MLEPAWSSETTINGS, 'secGroup')
+                obj.secGroup = 'default';    % Current version of the protocol
+            else
+                obj.secGroup = MLEPAWSSETTINGS.secGroup;
+            end            
         end
     end
 end

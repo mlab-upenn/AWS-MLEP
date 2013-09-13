@@ -2,8 +2,8 @@ function [ amazonEC2Client ] = pushToAWS( filepath, amazonEC2Client,instanceInfo
 %PUSHTOAWS Summary of this function goes here
 %   Detailed explanation goes here
 
-allFiles = dir(filepath);
-files = {allFiles(3:end).name};
+allFiles = dir([filepath filesep '*.idf']);
+files = {allFiles.name};
 for i = 1:instanceInfo.instCount
     mkdir(['idfs' num2str(i)]);
 end
@@ -21,11 +21,11 @@ cmd_mkdir = 'mkdir /home/ubuntu/mlep/simulation';
 
 parfor i = 1:instanceInfo.instCount
     disp('making simulation folder on AWS');
-    sendCommand(amazonEC2Client, strtrim(instanceInfo.pubDNSName(i,:)), cmd_mkdir);
+    sendCommand(amazonEC2Client, strtrim(instanceInfo.pubDNSName(i,:)), cmd_mkdir, keyName);
     lfile = ['idfs' num2str(i) '/*'];
     rfile = '/home/ubuntu/mlep/simulation';
     disp('Pushing idf files to AWS')
-    cmd = ['scp -i ' keyName ' ' lfile ' ubuntu@' strtrim(instanceInfo.pubDNSName(i,:)) ':' rfile ' &'];
+    cmd = ['scp -o StrictHostKeyChecking=no -i ' keyName ' ' lfile ' ubuntu@' strtrim(instanceInfo.pubDNSName(i,:)) ':' rfile ' &'];
     [stastus, msg] = system(cmd, '-echo');
 
     

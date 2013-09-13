@@ -1,11 +1,11 @@
-function [ amazonEC2Client ] = removeFolderOnAWS( amazonEC2Client, instanceInfo )
+function [ amazonEC2Client ] = removeFolderOnAWS( amazonEC2Client, instanceInfo, keyName)
 %REMOVEFOLDERONAWS Summary of this function goes here
 %   Detailed explanation goes here
 % remove from aws
 disp('Removing folders on AWS')
 for i = 1:instanceInfo.instCount
     cmd = 'rm -r /home/ubuntu/mlep/simulation';
-    sendCommand(amazonEC2Client, instanceInfo.pubDNSName(i,:), cmd);
+    sendCommand(amazonEC2Client, instanceInfo.pubDNSName(i,:), cmd, keyName);
 end
 
 end

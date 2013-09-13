@@ -1,8 +1,8 @@
-function [amazonEC2Client] = sendCommand(amazonEC2Client, publicDnsName, cmd)
+function [amazonEC2Client] = sendCommand(amazonEC2Client, publicDnsName, cmd, keyName)
 
 % JSch
 jsch = com.jcraft.jsch.JSch();
-jsch.addIdentity('initial.pem');
+jsch.addIdentity(keyName);
 jsch.setConfig('StrictHostKeyChecking', 'no');
 
 % enter your own EC2 instance IP here

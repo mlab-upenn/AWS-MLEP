@@ -1,4 +1,4 @@
-function [ amazonEC2Client ] = runSimulationOnAWS( amazonEC2Client, instanceInfo )
+function [ amazonEC2Client ] = runSimulationOnAWS( amazonEC2Client, instanceInfo, keyName)
 %RUNSIMULATIONONAWS Summary of this function goes here
 %   Detailed explanation goes here
 for i = 1:instanceInfo.instCount
@@ -16,7 +16,7 @@ cmd = cell(1,matlabpool('size'));
 parfor i =1:instanceInfo.instCount 
     for j = 1:size(fileNo,2)
         cmd{i} = ['runenergyplus /home/ubuntu/mlep/simulation/' num2str(fileNo(i,j))  ' USA_IL_Chicago-OHare.Intl.AP.725300_TMY3'];        
-        sendCommand(amazonEC2Client, instanceInfo.pubDNSName(i,:), cmd{i});        
+        sendCommand(amazonEC2Client, instanceInfo.pubDNSName(i,:), cmd{i}, keyName);        
         msg = ['simulation ',num2str(j), ' on machine #',num2str(i), ' done' ];
         disp(msg);
    end
