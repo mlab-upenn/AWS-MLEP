@@ -1,0 +1,4 @@
+cd C:\Users\mlab_PC\Documents\Willy\CampusModeling\Demo\single_building_ems
+C:\EnergyPlusV8-0-1\RunEPlus 5ZoneAirCooled USA_IL_Chicago-OHare.Intl.AP.725300_TMY3
+
+C:\EnergyPlusV8-0-1\PreProcess\ParametricPreProcessor\parametricpreprocessor 5ZoneAirCooled 
