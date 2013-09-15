@@ -12,15 +12,17 @@
 % Credentials Path (Full Path to your Credentials)
 %credPath = '/YOUR/CREDENTIALS/PATH';
 credPath = '/Users/willyg/Documents/Git/AWS-MLEP/AwsCredentials.properties';
+credPath = '/home/tao/Documents/MATLAB/aws/TaoAwsCredentials.properties'
 
 % Private Key Path (Full Path to your key)
 %keyPath = '/YOUR/PRIVATE/KEY/PATH';
 keyPath = '/Users/willyg/Documents/Git/AWS-MLEP/EnergyPlusKey.pem';
+keyPath = '/home/tao/Documents/MATLAB/aws/initial.pem'
 
 % Security Group Name
 %secGroup = 'YOUR SECURITY GROUP NAME';
 secGroup = 'mlepSecurityGroup2';
-
+secGroup = 'EPGroup'
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DO NOT MODIFY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % MLEP-AWS HOME 
