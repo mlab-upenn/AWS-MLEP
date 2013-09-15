@@ -17,7 +17,6 @@ function [ amazonEC2Client, SGName ] = createSecurityGroup( SGName, SGDescriptio
 
 
 
-
 % Create an Empty EC2 security group on AWS
 csgr = com.amazonaws.services.ec2.model.CreateSecurityGroupRequest(SGName, SGDescription);
 amazonEC2Client.createSecurityGroup(csgr);
@@ -40,6 +39,7 @@ end
 % create new rules (allowing all ingress tcp)
 ipRuleList = newSG.getIpPermissions;
 ipRule = com.amazonaws.services.ec2.model.IpPermission;
+
 ipRule.setIpProtocol('tcp');
 ipRule.setFromPort(java.lang.Integer(0));
 ipRule.setToPort(java.lang.Integer(65535));
@@ -49,8 +49,8 @@ ipRule.setIpRanges(ipRange);
 ipRuleList.add(ipRule);
 
 % authorize the new rule
-authorizeSGIPIngress.setIpPermissions(ipRuleList);
 authorizeSGIPIngress.setGroupId(newSG.getGroupId);
+authorizeSGIPIngress.setIpPermissions(ipRuleList);
 amazonEC2Client.authorizeSecurityGroupIngress(authorizeSGIPIngress);
 
 end
