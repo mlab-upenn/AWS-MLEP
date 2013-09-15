@@ -13,7 +13,7 @@ parfor i =1:instanceInfo.instCount
     allFiles= dir(['idfs' num2str(i) filesep '*.idf']);
     files = {allFiles.name};
     fileNo = size(files,2);
-    for j = 1:size(fileNo,2)
+    for j = 1:fileNo
         cmd = ['runenergyplus /home/ubuntu/mlep/simulation/' char(files(j))  ' USA_IL_Chicago-OHare.Intl.AP.725300_TMY3'];        
         sendCommand(amazonEC2Client, instanceInfo.pubDNSName(i,:), cmd, keyName);        
         msg = ['simulation ',num2str(j), ' on machine #',num2str(i), ' done' ];
