@@ -1,11 +1,13 @@
-function [ varNo ] = plotCSV( csvData,varNo )
+% This function is for plotting multiple simulation results
+function [ varNo ] = plotCSV( csvData,varNo,simuNo )
 %PLOTCSV Summary of this function goes here
-%   Detailed explanation goes here
-
+%   
 
 data = cell2mat(csvData.data);
 step = length(csvData.vars);
-plot(data(:,varNo:step:end));
+figure();
+allSimu = varNo:step:size(data,2);
+plot(data(:,allSimu(simuNo)));
 title(csvData.vars(varNo).name)
 % hold off;
 % for i = 1:size(files,2)

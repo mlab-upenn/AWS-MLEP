@@ -36,7 +36,7 @@ ep.fetchDataOnAWS();
 csvData = loadCSVs('OutputCSV');
 save('csvData.mat', 'csvData');
 % Plot Data 
-plotCSV(csvData, 2);
+plotCSV(csvData, 2, 1:2 );
 
 
 
