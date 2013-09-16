@@ -8,7 +8,11 @@ step = length(csvData.vars);
 figure();
 allSimu = varNo:step:size(data,2);
 plot(data(:,allSimu(simuNo)));
-title(csvData.vars(varNo).name)
+title(csvData.vars(varNo).object);
+ylabel(csvData.vars(varNo).name);
+xlabel('Time (min)');
+legend(strtrim(cellstr(num2str(simuNo'))));
+
 % hold off;
 % for i = 1:size(files,2)
 %     plot(data{i}(:,varNo),'Color', rand(1,3));
