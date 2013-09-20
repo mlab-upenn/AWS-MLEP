@@ -1,0 +1,39 @@
+Program Version,EnergyPlus-Darwin-OMP-64 8.0.0.008, YMD=2013.09.20 11:59
+1,5,Environment Title[],Latitude[deg],Longitude[deg],Time Zone[],Elevation[m]
+2,6,Day of Simulation[],Month[],Day of Month[],DST Indicator[1=yes 0=no],Hour[],StartMinute[],EndMinute[],DayType
+3,3,Cumulative Day of Simulation[],Month[],Day of Month[],DST Indicator[1=yes 0=no],DayType  ! When Daily Report Variables Requested
+4,2,Cumulative Days of Simulation[],Month[]  ! When Monthly Report Variables Requested
+5,1,Cumulative Days of Simulation[] ! When Run Period Report Variables Requested
+6,1,Environment,Site Outdoor Air Drybulb Temperature [C] !TimeStep
+7,1,Environment,Site Outdoor Air Dewpoint Temperature [C] !TimeStep
+8,1,Environment,Site Outdoor Air Wetbulb Temperature [C] !TimeStep
+9,1,Environment,Site Diffuse Solar Radiation Rate per Area [W/m2] !TimeStep
+10,1,Environment,Site Direct Solar Radiation Rate per Area [W/m2] !TimeStep
+11,1,SPACE1-1,Zone People Occupant Count [] !TimeStep
+12,1,SPACE2-1,Zone People Occupant Count [] !TimeStep
+13,1,SPACE3-1,Zone People Occupant Count [] !TimeStep
+14,1,SPACE4-1,Zone People Occupant Count [] !TimeStep
+15,1,SPACE5-1,Zone People Occupant Count [] !TimeStep
+308,1,PLENUM-1,Zone Air Temperature [C] !TimeStep
+341,1,SPACE1-1,Zone Air Temperature [C] !TimeStep
+374,1,SPACE2-1,Zone Air Temperature [C] !TimeStep
+407,1,SPACE3-1,Zone Air Temperature [C] !TimeStep
+440,1,SPACE4-1,Zone Air Temperature [C] !TimeStep
+473,1,SPACE5-1,Zone Air Temperature [C] !TimeStep
+474,1,EMS,Weighted Average Building PPD [%] !TimeStep
+475,1,CHILLED WATER LOOP,Plant Supply Side Inlet Temperature [C] !TimeStep
+476,1,CHILLED WATER LOOP,Plant Supply Side Outlet Temperature [C] !TimeStep
+570,1,SPACE1-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PPD [%] !TimeStep
+571,1,SPACE2-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PPD [%] !TimeStep
+572,1,SPACE3-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PPD [%] !TimeStep
+573,1,SPACE4-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PPD [%] !TimeStep
+574,1,SPACE5-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PPD [%] !TimeStep
+683,1,SPACE1-1 VAV REHEAT,Zone Air Terminal VAV Damper Position [] !TimeStep
+684,1,SPACE2-1 VAV REHEAT,Zone Air Terminal VAV Damper Position [] !TimeStep
+685,1,SPACE3-1 VAV REHEAT,Zone Air Terminal VAV Damper Position [] !TimeStep
+686,1,SPACE4-1 VAV REHEAT,Zone Air Terminal VAV Damper Position [] !TimeStep
+687,1,SPACE5-1 VAV REHEAT,Zone Air Terminal VAV Damper Position [] !TimeStep
+688,1,SUPPLY FAN 1,Fan Electric Power [W] !TimeStep
+813,1,CENTRAL CHILLER,Chiller Electric Power [W] !TimeStep
+858,1,HW CIRC PUMP,Pump Electric Power [W] !TimeStep
+860,1,CW CIRC PUMP,Pump Electric Power [W] !TimeStep

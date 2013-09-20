@@ -1,0 +1,28 @@
+Program Version,EnergyPlus-Darwin-OMP-64 8.0.0.008, YMD=2013.09.20 11:59,IDD_Version 8.0.0.008
+   ************* Beginning Zone Sizing Calculations
+   ** Warning ** CheckUsedConstructions: There are 6 nominally unused constructions in input.
+   **   ~~~   ** For explicit details on each unused construction, use Output:Diagnostics,DisplayExtraWarnings;
+   ** Warning ** GetRuntimeLanguageUserInput: EnergyManagementSystem:OutputVariable="Weighted Average Building PPD using deprecated units designation.
+   **   ~~~   ** ...Units entered in Name (deprecated use)="%"
+   ************* Beginning System Sizing Calculations
+   ************* Beginning Plant Sizing Calculations
+   ** Severe  ** Check input.  Calculated Pump Efficiency=689.655% which is bigger than 100%, for pump=CW CIRC PUMP
+   **   ~~~   ** Calculated Pump_Efficiency % =Total_Efficiency % [600.0] / Motor_Efficiency % [87.0]
+   **   ~~~   ** Total_Efficiency % =(Rated_Volume_Flow_Rate [0.1] * Rated_Pump_Head [300000.0] / Rated_Power_Use [5000.0]) * 100.
+   **  Fatal  ** Errors found in Pump input
+   ...Summary of Errors that led to program termination:
+   ..... Reference severe error count=1
+   ..... Last severe error=Check input.  Calculated Pump Efficiency=689.655% which is bigger than 100%, for pump=CW CIRC PUMP
+   ************* Warning:  Node connection errors not checked - most system input has not been read (see previous warning).
+   ************* Fatal error -- final processing.  Program exited before simulations began.  See previous error messages.
+   *************
+   ************* ===== Final Error Summary =====
+   ************* The following error categories occurred.  Consider correcting or noting.
+   ************* Nominally Unused Constructions
+   ************* ..The nominally unused constructions warning is provided to alert you to potential conditions that can cause
+   ************* ..extra time during simulation. Each construction is calculated by the algorithm indicated in the HeatBalanceAlgorithm
+   ************* ..object. You may remove the constructions indicated (when you use the DisplayExtraWarnings option).
+   *************
+   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 2 Warning; 0 Severe Errors.
+   ************* EnergyPlus Terminated--Fatal Error Detected. 2 Warning; 1 Severe Errors; Elapsed Time=00hr 00min  7.83sec
