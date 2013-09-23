@@ -118,7 +118,7 @@
     25,                      !- Maximum Number of Warmup Days
     6;                       !- Minimum Number of Warmup Days
 
-  Timestep,4;
+  Timestep,60;
 
   SurfaceConvectionAlgorithm:Inside,Simple;
 
@@ -3878,17 +3878,33 @@
   Parametric:SetValueForRun,
     $chillerSP, !- Parameter Name
     7.2, !- Value for run 1
-    8.2, !- Value for run 2
-    9.2, !- Value for run 3
-    10.2, !- Value for run 4
-    11.2, !- Value for run 5
-    12.2, !- Value for run 6
-    13.2, !- Value for run 7
-    14.2; !- Value for run 8
+    10.2, !- Value for run 1
+    13.2; !- Value for run 1
+    7.2, !- Value for run 1
+    10.2, !- Value for run 1
+    13.2; !- Value for run 1
+!    8.2, !- Value for run 2
+!    9.2, !- Value for run 3
+!    10.2, !- Value for run 4
+!    11.2, !- Value for run 1
+!    12.2, !- Value for run 2
+!    13.2, !- Value for run 3
+!    14.2; !- Value for run 4
+!    7.2, !- Value for run 1
+!    8.2, !- Value for run 2
+!    9.2, !- Value for run 3
+!    10.2, !- Value for run 4
+!    11.2, !- Value for run 1
+!    12.2, !- Value for run 2
+!    13.2, !- Value for run 3
+!    14.2; !- Value for run 4
 
   Parametric:SetValueForRun,
     $loopVolume, !- Parameter Name
-    20; !- Value for run 1 2.47500
+    4, !- Value for run 1 2.47500
+    4, !- Value for run 1 2.47500
+    4, !- Value for run 1 2.47500
+    4, !- Value for run 1 2.47500
 
   Parametric:SetValueForRun,
     $pipeL, !- Parameter Name
@@ -3958,11 +3974,7 @@
   EnergyManagementSystem:Program,
     SetWeatherFunction, !- Name
     Set OutdoorTemperature = 40, !- Program Line 1
-<<<<<<< HEAD
     Set OutdoorDewPoint = 14, !- Program Line 2
-=======
-    Set OutdoorDewPoint = 13, !- Program Line 2
->>>>>>> bc9ed71842d91e0809c7083f309a6168b38c8b3f
     Set OutdoorRelativeHumidity = 60, !- Program Line 3
     Set DiffuseSolar = 0, !- Program Line 3
     Set DirectSolar = 0; !- Program Line 3    
