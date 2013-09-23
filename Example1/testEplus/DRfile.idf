@@ -3957,8 +3957,8 @@
   
   EnergyManagementSystem:Program,
     SetWeatherFunction, !- Name
-    Set OutdoorTemperature = 35, !- Program Line 1
-    Set OutdoorDewPoint = 14, !- Program Line 2
+    Set OutdoorTemperature = 40, !- Program Line 1
+    Set OutdoorDewPoint = 13, !- Program Line 2
     Set OutdoorRelativeHumidity = 60, !- Program Line 3
     Set DiffuseSolar = 0, !- Program Line 3
     Set DirectSolar = 0; !- Program Line 3    
