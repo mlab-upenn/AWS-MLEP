@@ -27,6 +27,7 @@ ep.removeFolderOnAws();
 idfFolderPath = 'idfs';
 ep.pushToAWS(idfFolderPath);
 % Run simulation on AWS
+pause(3);
 ep.runSimulationOnAWS();
 % Move simulation result to proper folders
 ep.moveFileOnAWS();
@@ -36,7 +37,7 @@ ep.fetchDataOnAWS();
 csvData = loadCSVs('OutputCSV');
 save('csvData.mat', 'csvData');
 % Plot Data 
-plotCSV(csvData, 2, 1:2 );
+plotCSV(csvData, 22, 1:8 );
 
 
 

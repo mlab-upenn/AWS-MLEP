@@ -17,7 +17,7 @@ ep.createEC2Client();
 % Init EC2 Client
 ep.initEC2Client();
 % Create Instance if there is no instance on AWS
-numOfInst = 3;
+numOfInst = 2;
 ep.initAWSInstance(numOfInst);
 
 

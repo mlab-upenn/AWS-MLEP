@@ -3861,7 +3861,7 @@
 !    4, !- Value for run 5
 !    5, !- Value for run 6
 !    6, !- Value for run 7
-!    7, !- Value for run 8
+!    7; !- Value for run 8
 
 
   Parametric:SetValueForRun,
@@ -3873,7 +3873,7 @@
 !    26, !- Value for run 5
 !    27, !- Value for run 6
 !    28, !- Value for run 7
-!    29, !- Value for run 8
+!    29; !- Value for run 8
 
   Parametric:SetValueForRun,
     $chillerSP, !- Parameter Name
@@ -3913,7 +3913,7 @@
     Verbose,
     Verbose,
     Verbose;
-!======================EMS:WEATHER=============================================
+!======================EMS:WEATHER=========================================
  
   EnergyManagementSystem:Sensor,
     OutdoorTemp, !- Name
@@ -3957,7 +3957,7 @@
   
   EnergyManagementSystem:Program,
     SetWeatherFunction, !- Name
-    Set OutdoorTemperature = 35, !- Program Line 1
+    Set OutdoorTemperature = 40, !- Program Line 1
     Set OutdoorDewPoint = 14, !- Program Line 2
     Set OutdoorRelativeHumidity = 60, !- Program Line 3
     Set DiffuseSolar = 0, !- Program Line 3
@@ -4059,6 +4059,7 @@
   Output:Variable,Cond Circ pump,Pump Electric Power,timestep;
   Output:Variable,supply fan 1,Fan Electric Power,timestep;
   Output:Variable,Big Chiller,Chiller Electric Power,timestep;
+  Output:Variable,Big Tower,Cooling Tower Fan Electric Power,timestep;
  
 !======================NODES=============================================
   ! NODE SETTINGS  
