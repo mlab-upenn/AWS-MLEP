@@ -3609,9 +3609,9 @@
     CW Circ Pump,            !- Name
     CW Supply Inlet Node,    !- Inlet Node Name
     CW Pump Outlet Node,     !- Outlet Node Name
-    0.0043,                !- Rated Flow Rate {m3/s} autosize
-    300000,                  !- Rated Pump Head {Pa} 
-    2000,                !- Rated Power Consumption {W} autosize
+    0.0043,                !- Rated Flow Rate {m3/s} autosize 0.0043
+    300000,                  !- Rated Pump Head {Pa} 300000
+    2000,                !- Rated Power Consumption {W} autosize 2000
     0.9,                     !- Motor Efficiency
     0.0,                     !- Fraction of Motor Inefficiencies to Fluid Stream
     0,                       !- Coefficient 1 of the Part Load Performance Curve
@@ -3894,55 +3894,113 @@
 
   Parametric:SetValueForRun,
     $satSP, !- Parameter Name
-    13; !- Value for run 1
-!    14, !- Value for run 2   
-!    15, !- Value for run 3
-!    16, !- Value for run 4
-!    17, !- Value for run 5
-!    18, !- Value for run 6
-!    19, !- Value for run 7
-!    20, !- Value for run 8
+    13, !- Value for run 1
+    15, !- Value for run 2   
+    17, !- Value for run 3
+    13, !- Value for run 1
+    15, !- Value for run 2   
+    17, !- Value for run 3
+    13, !- Value for run 1
+    15, !- Value for run 2   
+    17, !- Value for run 3
+    13, !- Value for run 1
+    15, !- Value for run 2   
+    17, !- Value for run 3
+    13, !- Value for run 1
+    15, !- Value for run 2   
+    17, !- Value for run 3
+    13, !- Value for run 1
+    15, !- Value for run 2   
+    17, !- Value for run 3
+    13, !- Value for run 1
+    15, !- Value for run 2   
+    17, !- Value for run 3
+    13, !- Value for run 1
+    15, !- Value for run 2   
+    17, !- Value for run 3
+    13, !- Value for run 1
+    15, !- Value for run 2   
+    17; !- Value for run 3
 
   Parametric:SetValueForRun,
     $condSP, !- Parameter Name
     0; !- Value for run 1
-!    1, !- Value for run 2   
-!    2, !- Value for run 3
-!    3, !- Value for run 4
-!    4, !- Value for run 5
-!    5, !- Value for run 6
-!    6, !- Value for run 7
-!    7; !- Value for run 8
-
-  Parametric:SetValueForRun,
-    $pipeL, !- Parameter Name
-    250; !- Value for run 1
-
-  Parametric:SetValueForRun,
-    $loopVolume, !- Parameter Name
-    2; !- Value for run 1
+!    0, !- Value for run 2   
+!    0, !- Value for run 3
+!    2, !- Value for run 4
+!    2, !- Value for run 5
+!    2, !- Value for run 6
+!    4, !- Value for run 7
+!    4, !- Value for run 7
+!    4; !- Value for run 8
 
   Parametric:SetValueForRun,
     $ChillerSP, !- Parameter Name
-    7.2; !- Value for run 1
-!    8.2, !- Value for run 2
-!    9.2, !- Value for run 3
-!    10.2, !- Value for run 4
-!    11.2, !- Value for run 5
-!    12.2, !- Value for run 6
-!    13.2, !- Value for run 7
-!    14.2; !- Value for run 8
+    7.2, !- Value for run 1
+    7.2, !- Value for run 1
+    7.2, !- Value for run 1
+    9.2, !- Value for run 2
+    9.2, !- Value for run 2
+    9.2, !- Value for run 2
+    11.2, !- Value for run 5
+    11.2, !- Value for run 5
+    11.2, !- Value for run 5
+    7.2, !- Value for run 1
+    7.2, !- Value for run 1
+    7.2, !- Value for run 1
+    9.2, !- Value for run 2
+    9.2, !- Value for run 2
+    9.2, !- Value for run 2
+    11.2, !- Value for run 5
+    11.2, !- Value for run 5
+    11.2, !- Value for run 5
+    7.2, !- Value for run 1
+    7.2, !- Value for run 1
+    7.2, !- Value for run 1
+    9.2, !- Value for run 2
+    9.2, !- Value for run 2
+    9.2, !- Value for run 2
+    11.2, !- Value for run 5
+    11.2, !- Value for run 5
+    11.2; !- Value for run 5
 
   Parametric:SetValueForRun,
     $RoomSP, !- Parameter Name
     22, !- Value for run 1
-    23, !- Value for run 2   
-    24, !- Value for run 3
-    25, !- Value for run 4
-    26, !- Value for run 5
-    27, !- Value for run 6
-    28, !- Value for run 7
-    29; !- Value for run 8
+    22, !- Value for run 1
+    22, !- Value for run 1
+    22, !- Value for run 1
+    22, !- Value for run 1
+    22, !- Value for run 1
+    22, !- Value for run 1
+    22, !- Value for run 1
+    22, !- Value for run 1
+    25, !- Value for run 2   
+    25, !- Value for run 2   
+    25, !- Value for run 2   
+    25, !- Value for run 2   
+    25, !- Value for run 2   
+    25, !- Value for run 2   
+    25, !- Value for run 2   
+    25, !- Value for run 2   
+    25, !- Value for run 2   
+    28, !- Value for run 3
+    28, !- Value for run 3
+    28, !- Value for run 3
+    28, !- Value for run 3
+    28, !- Value for run 3
+    28, !- Value for run 3
+    28, !- Value for run 3
+    28, !- Value for run 3
+    28; !- Value for run 3
+
+  Parametric:SetValueForRun,
+    $pipeL, !- Parameter Name
+    300; !- Value for run 1
+
+  Parametric:SetValueForRun,
+    $loopVolume, !- Parameter Name
+    2; !- Value for run 1
 
   Parametric:SetValueForRun,
     $occupySched, !- Parameter Name
@@ -4261,7 +4319,27 @@
   Output:Variable,Main Cooling Coil 1 Water Inlet Node, System Node Temperature,timestep;
   Output:Variable,Main Cooling Coil 1 Water Outlet Node, System Node Temperature,timestep;
   Output:Variable,Main Cooling Coil 1 Water Outlet Node, System Node Mass Flow Rate,timestep;
+
+  Output:Variable,OA Mixing Box 1 Inlet Node, System Node Mass Flow Rate,timestep;
   
+  Output:Variable,OA Mixing Box 1 Inlet Node, System Node Mass Flow Rate,timestep;
+  Output:Variable,Relief Air Outlet Node 1, System Node Mass Flow Rate,timestep;
+  Output:Variable,VAV Sys 1 Inlet Node, System Node Mass Flow Rate,timestep;
+  Output:Variable,Mixed Air Node 1, System Node Mass Flow Rate,timestep;
+
+  Output:Variable,OA Mixing Box 1 Inlet Node, System Node Temperature,timestep;
+  Output:Variable,Relief Air Outlet Node 1, System Node Temperature,timestep;
+  Output:Variable,VAV Sys 1 Inlet Node, System Node Temperature,timestep;
+  Output:Variable,Mixed Air Node 1, System Node Temperature,timestep;
+
+  Output:Variable,CW Pump Outlet Node, System Node Mass Flow Rate,timestep;
+
+!CW Supply Inlet Node,    !- Component 1 Inlet Node Name
+!    CW Pump Outlet Node
+
+!OA Mixing Box 1 Inlet Node,  !- Outdoor Air Stream Node Name
+!    Relief Air Outlet Node 1,!- Relief Air Stream Node Name
+!    VAV Sys 1 Inlet Node
  
 !======================WEATHER=============================================
   Output:Variable,Environment,Site Outdoor Air Wetbulb Temperature,timestep;
