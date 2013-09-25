@@ -1,3 +1,4 @@
+clear all;
 load runCWSATROOM.mat
 
 startTime = 13;
@@ -12,7 +13,7 @@ pumpParam = resultAnalyzing(csvData, varNo, startTime, endTime);
 varNo = 12; % PPD
 ppdParam = resultAnalyzing(csvData, varNo, startTime, endTime);
 
-%% DISPLAY
+%% DISPLAY 
 chillerArray = cell2mat(chillerParam);
 chillPoint = [chillerArray.P6]/1000;
 fanArray = cell2mat(fanParam);
@@ -20,7 +21,7 @@ fanPoint = [fanArray.P6]/1000;
 pumpArray = cell2mat(pumpParam);
 pumpPoint = [pumpArray.P6]/1000;
 ppdArray = cell2mat(ppdParam);
-ppdPoint = [ppdArray.P6];
+ppdPoint = [ppdArray.P6]; 
  
 figure;
 scatter(ppdPoint,chillPoint,'b*');
@@ -43,10 +44,10 @@ ylabel('PowerkW');
 
 %% 
 % Plot All of them 
-% for i = [1 2 3 4 7 10 19]
-%     plotCSV(csvData,19,i);
-%     str = input('');
-% 
-% end
+for i = [1 2 3 4 7 10 19]
+    plotCSV(csvData,19,i);
+    str = input('');
+
+end
 % DR function area & Kickback 
 % 
