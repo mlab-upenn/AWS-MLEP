@@ -3890,7 +3890,7 @@
 !======================PARAMETRIC=============================================
   Parametric:Logic,
     Main,                    !- name
-    ENABLE "Weather Calling Manager";
+    DISABLE "Weather Calling Manager";
 
   Parametric:SetValueForRun,
     $satSP, !- Parameter Name
