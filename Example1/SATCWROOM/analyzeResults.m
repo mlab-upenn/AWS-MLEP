@@ -1,5 +1,5 @@
 clear all;
-load runCWSATROOM.mat
+load csvData_weather.mat
 
 startTime = 13;
 endTime = 17;
@@ -22,10 +22,14 @@ pumpArray = cell2mat(pumpParam);
 pumpPoint = [pumpArray.P6]/1000;
 ppdArray = cell2mat(ppdParam);
 ppdPoint = [ppdArray.P6]; 
- 
+
+totalPoint = chillPoint + fanPoint + pumpPoint;
+
 figure;
 scatter(ppdPoint,chillPoint,'b*');
-hline([chillPoint(1), fanPoint(1), pumpPoint(1)],{'b','r','k'},{'Chiller','Fan','Pump'});
+hline([chillPoint(1), fanPoint(1), pumpPoint(1), totalPoint(1)],{'b','r','k', 'm'},{'Chiller','Fan','Pump', 'Total'});
+hold on;
+scatter(ppdPoint,totalPoint,'m*');
 hold on;
 scatter(ppdPoint,pumpPoint,'k*');
 hold on;
@@ -35,6 +39,7 @@ for i = 1:27
     text(ppdPoint(i), chillPoint(i), ['  ' num2str(i)], 'FontSize', 12, 'color', 'b');
     text(ppdPoint(i), fanPoint(i), ['  ' num2str(i)], 'FontSize', 12, 'color', 'r');
     text(ppdPoint(i), pumpPoint(i), ['  ' num2str(i)], 'FontSize', 12, 'color', 'k');
+    text(ppdPoint(i), totalPoint(i), ['  ' num2str(i)], 'FontSize', 12, 'color', 'm');
 end
 hold on;
 grid on;

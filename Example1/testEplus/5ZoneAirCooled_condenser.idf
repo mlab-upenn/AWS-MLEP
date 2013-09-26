@@ -1850,8 +1850,8 @@
     3.7,3.7,2.4;  !- X,Y,Z ==> Vertex 4 {m}
  
   Sizing:Parameters,
-    1.0,                     !- Heating Sizing Factor
-    1.0,                     !- Cooling Sizing Factor
+    1.3,                     !- Heating Sizing Factor
+    1.3,                     !- Cooling Sizing Factor
     ;                        !- Timesteps in Averaging Window
  
   Sizing:Zone,
@@ -2170,9 +2170,9 @@
     Until: 24:00,1.0,        !- Field 3
     Through: 9/30,           !- Field 5
     For: WeekDays,           !- Field 6
-    Until: 6:00,1.0,         !- Field 7 0
+    Until: 6:00,0.0,         !- Field 7 0
     Until: 20:00,1.0,        !- Field 9
-    Until: 24:00,1.0,        !- Field 11 0
+    Until: 24:00,0.0,        !- Field 11 0
     For: SummerDesignDay WinterDesignDay, !- Field 13
     Until: 24:00,1.0,        !- Field 14
     For: AllOtherDays,       !- Field 16
@@ -2186,9 +2186,9 @@
     Fraction,                !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: WeekDays,           !- Field 2
-    Until: 6:00,1.0,         !- Field 3
+    Until: 6:00,0.0,         !- Field 3
     Until: 20:00,1.0,        !- Field 5
-    Until: 24:00,1.0,        !- Field 7
+    Until: 24:00,0.0,        !- Field 7
     For: SummerDesignDay WinterDesignDay, !- Field 9
     Until: 24:00,1.0,        !- Field 10
     For: AllOtherDays,       !- Field 12
@@ -2209,9 +2209,9 @@
     Until: 24:00,1.0,        !- Field 3
     Through: 9/30,           !- Field 5
     For: WeekDays,           !- Field 6
-    Until: 6:00,1.0,         !- Field 7
+    Until: 6:00,0.0,         !- Field 7
     Until: 20:00,1.0,        !- Field 9
-    Until: 24:00,1.0,        !- Field 11
+    Until: 24:00,0.0,        !- Field 11
     For: SummerDesignDay WinterDesignDay, !- Field 13
     Until: 24:00,1.0,        !- Field 14
     For: AllOtherDays,       !- Field 16
