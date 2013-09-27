@@ -1,11 +1,11 @@
-function genParametric(fileName, param, newFile)
+function [controls] = genParametric(fileName, param, newFile)
 % Generate multiple scenarios 
 
 % Read File
 dataIDF = readIDFAWS(fileName, {'Parametric:SetValueForRun'});
 
 % Generate Control Knobs
-dataReplace = generateLines(param);
+[dataReplace, controls] = generateLines(param);
 
 % Read Original file
 fid = fopen(fileName,'r');

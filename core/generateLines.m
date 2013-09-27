@@ -1,4 +1,4 @@
-function [data] = generateLines(param)
+function [data, comb] = generateLines(param)
 
 
 % Allocate struct for lines

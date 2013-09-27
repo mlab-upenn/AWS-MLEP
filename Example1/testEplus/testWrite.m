@@ -17,7 +17,9 @@ param.loopVolume = {4};
 % generateTemplate
 filename = '5ZoneAirCooledCondenser.idf';
 newFile = 'test1.idf';
-genParametric(filename, param, newFile);
+controls = genParametric(filename, param, newFile);
+save('controls.mat', 'controls');
+ 
 [status, msg] = system(['parametricpreprocessor ' newFile '&'],'-echo');
 
 
