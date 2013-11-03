@@ -8,8 +8,8 @@
 %   2013-09-30  Created. 
 function [ chromosomes_recombined ] = recombination( chromosomes_tobeRecom,chromoLen )
 %RECOMBINATION Summary of this function goes here
-%   INPUT   chromosomes, indivuduals(chromosomes) to be recombined,size 1
-%   by population by number of signalized nodes
+%   INPUT   chromosomes_tobeRecom, decimal form of binary chromosomes.
+%           e.g. if the chromosome is 1001, this input should be 9
 %   OUTPUT  chromosomes_recombined size population by number of signalized nodes
 chromosomes_recombined = zeros(size(chromosomes_tobeRecom,1),size(chromosomes_tobeRecom,2));
 

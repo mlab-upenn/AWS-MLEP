@@ -44,8 +44,9 @@ classdef mlepAwsProcess < handle
     end
     
     methods
-        function obj = mlepAwsProcess
+        function obj = mlepAwsProcess()
             defaultSettings(obj);
+    %        customSettings(obj,keyPath,credPath,numOfInst);
         end
         
         function [status, msg] = start(obj)
@@ -179,6 +180,21 @@ classdef mlepAwsProcess < handle
             else
                 obj.secGroup = MLEPAWSSETTINGS.secGroup;
             end            
+        end
+        function customSettings(obj,credPath, keyPath, numOfInst)
+            global MLEPAWSSETTINGS
+            
+            noSettings = isempty(MLEPAWSSETTINGS) || ~isstruct(MLEPAWSSETTINGS);
+            if noSettings
+                % Try to run mlepInit
+                if exist('mlepInit', 'file') == 2
+                    mlepInit;
+                    noSettings = isempty(MLEPAWSSETTINGS) || ~isstruct(MLEPAWSSETTINGS);
+                end
+            end
+            obj.keyPath = keyPath;
+            obj.credPath = credPath;
+            obj.numOfInst = numOfInst;
         end
     end
 end
