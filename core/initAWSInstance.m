@@ -1,4 +1,4 @@
-function [amazonEC2Client, ec2Inst] = initAWSInstance( amazonEC2Client, keyName, securityGroup)
+function [amazonEC2Client, ec2Inst] = initAWSInstance( amazonEC2Client, keyName, securityGroup, instType)
 %INITAWSINSTANCE Summary of this function goes here
 %   Detailed explanation goes here
 disp('===========================================');
@@ -8,7 +8,7 @@ disp('===========================================');
 % Prepare Inputs
 imageID = java.lang.String('ami-8397e7ea');
 %securityGroup = 'EPGroup';
-instanceType = java.lang.String('t1.micro');
+instanceType = java.lang.String(instType);
 [~,keyName,~] = fileparts(keyName);
 %keyName = java.lang.String('initial');
  
