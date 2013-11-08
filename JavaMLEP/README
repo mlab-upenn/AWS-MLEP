@@ -1,0 +1,24 @@
+STEPS: 
+
+1. Setup the BCVTB_HOME variable. You can do this in your .bashrc or .bash_profile file. 
+Make sure the path you specify takes you to the /bcvtb folder in the MLE+ configuration. 
+The EC2 instance already has this setup properly.  
+
+# BCVTB PATH for MLE+                                                                                                                                                 
+export BCVTB_HOME=/Users/willyg/Documents/Git/mlep_v2.0/MLE+/bcvtb/ 
+
+Make sure you source your .bashrc or .bash_profile after you change this. 
+
+2. You can run the example I included by typing the follwing. 
+
+java -jar mlepJava1.jar SmallOffice-000001 1.txt
+
+NOTES:
+1. "1.txt" has the information with the inputs 
+2. SmallOffice-000001.idf is a Small Office building with only one input (Cooling SP). 
+3. This should run properly, but it might take some time as it is running every 1min. 
+
+
+
+
+
