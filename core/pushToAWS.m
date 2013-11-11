@@ -10,6 +10,7 @@ for i = 1:instanceInfo.instCount
         rmdir(dirName, 's');
     end
     mkdir(dirName);
+    copyfile(['JMLEP' filesep '*'],dirName);
 end
 
 % Create Vector of Files with their corresponding Instances

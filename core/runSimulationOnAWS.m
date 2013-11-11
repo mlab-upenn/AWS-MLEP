@@ -14,9 +14,10 @@ parfor i =1:instanceInfo.instCount
     files = {allFiles.name};
     fileNo = size(files,2);
     for j = 1:fileNo
+
         cmd = ['mv /home/ubuntu/mlep/simulation/*.idf /home/ubuntu/mlep/simulation/' char(files(j)) '.idf'];
         sendCommand(amazonEC2Client, instanceInfo.pubDNSName(i,:), cmd, keyName);        
-        cmd = ['java -jar mlepJava1.jar ' char(files(j)) '.idf ' char(files(j)) '.txt'];        
+        cmd = ['java -jar mlepJava1.jar ' char(files(j)) '.idf ' char(files(j))];        
         sendCommand(amazonEC2Client, instanceInfo.pubDNSName(i,:), cmd, keyName);        
         msg = ['simulation ',num2str(j), ' on machine #',num2str(i), ' done' ];
         disp(msg);

@@ -4,7 +4,7 @@ function [ data ] = genParameters( numVar, numStep, rangeBit )
 
 maxValue = 2^rangeBit - 1;
 
-data = randi(maxValue,numVar,numStep);
+data = randi([22 30],numVar,numStep);
     
 
 end

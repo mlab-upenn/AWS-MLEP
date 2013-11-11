@@ -6,7 +6,7 @@ disp('Run Instance!');
 disp('===========================================');
 
 % Prepare Inputs
-imageID = java.lang.String('ami-8397e7ea');
+imageID = java.lang.String('ami-33aef35a');
 %securityGroup = 'EPGroup';
 instanceType = java.lang.String(instType);
 [~,keyName,~] = fileparts(keyName);
