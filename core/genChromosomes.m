@@ -1,4 +1,4 @@
-function [ strChromos ] = genChromosomes( data,rangeBit )
+function [ strChromos, chromoLen ] = genChromosomes( data,rangeBit )
 %GENCHROMOSOME Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -9,6 +9,7 @@ for i = 1:size(data,2)
     end
 end
 strChromos = strChromos';
+chromoLen = size(data,1) * rangeBit;
 
 end
 

@@ -11,10 +11,10 @@ function [ chromosomes_recombined ] = recombination( chromosomes_tobeRecom,chrom
 %   INPUT   chromosomes_tobeRecom, decimal form of binary chromosomes.
 %           e.g. if the chromosome is 1001, this input should be 9
 %   OUTPUT  chromosomes_recombined size population by number of signalized nodes
-chromosomes_recombined = zeros(size(chromosomes_tobeRecom,1),size(chromosomes_tobeRecom,2));
+chromosomes_recombined = zeros(size(chromosomes_tobeRecom));
 
 
-crossPoints = randi([1,chromoLen],[size(chromosomes_tobeRecom,1)/2, 1]);
+crossPoints = randi([1,chromoLen],[size(chromosomes_tobeRecom,1)/2, size(chromosomes_tobeRecom,2)]);
 for i = 1:2:size(chromosomes_tobeRecom,1)
 %     i
     for j = 1:size(chromosomes_tobeRecom,2)

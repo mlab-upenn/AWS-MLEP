@@ -1,9 +1,6 @@
-pop = 10;
-numVar = 2;
+gen = 30;
+pop = 18;
+numVar = 1;
 numStep = 24;
-for i = 1:pop
-    data = genParameters(numVar,numStep,5);
-    strChromos = genChromosomes(data,5);
-    oneGen(i,:) = bin2dec(strChromos);
-    
-end
+rangeBit = 5;
+oneGen = genInitScheduleTXT(pop,numVar,numStep,rangeBit);
