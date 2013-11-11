@@ -9,6 +9,7 @@ end
 cmd = cell(1,matlabpool('size'));
 
 % Send runenergyplus command
+
 parfor i =1:instanceInfo.instCount
     allFiles= dir([filedir num2str(i) filesep '*.txt']);
     files = {allFiles.name};
@@ -17,7 +18,11 @@ parfor i =1:instanceInfo.instCount
 
         cmd = ['mv /home/ubuntu/mlep/simulation/*.idf /home/ubuntu/mlep/simulation/' char(files(j)) '.idf'];
         sendCommand(amazonEC2Client, instanceInfo.pubDNSName(i,:), cmd, keyName);        
-        cmd = ['java -jar mlepJava1.jar ' char(files(j)) '.idf ' char(files(j))];        
+
+
+        cmd = ['cd /home/ubuntu/mlep/simulation/; java -jar mlepJava1.jar ' char(files(j)) '.idf ' char(files(j))]; 
+%         cmd = ['java -jar /home/ubuntu/mlep/simulation/mlepJava1.jar /home/ubuntu/mlep/simulation/' char(files(j)) '.idf /home/ubuntu/mlep/simulation/' char(files(j))]; 
+        cmd
         sendCommand(amazonEC2Client, instanceInfo.pubDNSName(i,:), cmd, keyName);        
         msg = ['simulation ',num2str(j), ' on machine #',num2str(i), ' done' ];
         disp(msg);
