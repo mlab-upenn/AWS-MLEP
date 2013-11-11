@@ -2,10 +2,10 @@ function [indMap] = pushToAWS( filepath, amazonEC2Client,instanceInfo, keyName )
 %PUSHTOAWS Summary of this function goes here
 %   Detailed explanation goes here
 
-allFiles = dir([filepath filesep '*.idf']);
+allFiles = dir([filepath filesep '*.txt']);
 files = {allFiles.name};
 for i = 1:instanceInfo.instCount
-    dirName = ['idfs' num2str(i)];
+    dirName = ['schedule' num2str(i)];
     if exist(dirName,'dir')
         rmdir(dirName, 's');
     end
@@ -20,7 +20,7 @@ indMap = sort(indMap);
 % Copy Files to their Instances
 noOfFiles = size(files,2);
 for i = 1:noOfFiles
-   copyfile(['idfs' filesep files{i}],['idfs' num2str(indMap(i)) filesep files{i}]);% ,instanceInfo.instCount)+1)
+   copyfile(['schedule' filesep files{i}],['schedule' num2str(indMap(i)) filesep files{i}]);% ,instanceInfo.instCount)+1)
     
 end
 
@@ -33,7 +33,7 @@ cmd_mkdir = 'mkdir /home/ubuntu/mlep/simulation';
 parfor i = 1:instanceInfo.instCount
     disp('making simulation folder on AWS');
     sendCommand(amazonEC2Client, strtrim(instanceInfo.pubDNSName(i,:)), cmd_mkdir, keyName);
-    lfile = ['idfs' num2str(i) '/*'];
+    lfile = ['schedule' num2str(i) '/*'];
     rfile = '/home/ubuntu/mlep/simulation';
     disp('Pushing idf files to AWS')
     cmd = ['scp -o StrictHostKeyChecking=no -i ' keyName ' ' lfile ' ubuntu@' strtrim(instanceInfo.pubDNSName(i,:)) ':' rfile ' &'];

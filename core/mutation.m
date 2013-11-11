@@ -11,10 +11,10 @@ function [ newGeneration ] = mutation( recombined_chromosomes,chromoLen )
 %   Detailed explanation goes here
 chromoCount = size(recombined_chromosomes,1) * size(recombined_chromosomes,2);
 mutationPos = randperm(chromoCount);
-idxMutationChromo = mutationPos(1:round(chromoCount/10));
-idxMutationBitInChromo = randi(chromoLen,1,round(chromoCount/10));
+idxMutationChromo = mutationPos(1:round(chromoCount/100));
+idxMutationBitInChromo = randi(chromoLen,1,round(chromoCount/100));
 
-for i = 1:round(chromoCount/10)
+for i = 1:round(chromoCount/100)
     strChromo = dec2bin(recombined_chromosomes(idxMutationChromo(i)),chromoLen);
     strChromo(idxMutationBitInChromo(i)) = num2str(abs(str2double(strChromo(idxMutationBitInChromo(i))) - 1));
     recombined_chromosomes(idxMutationChromo(i)) = bin2dec(strChromo);
