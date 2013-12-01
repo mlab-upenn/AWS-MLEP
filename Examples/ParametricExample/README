@@ -1,0 +1,8 @@
+% STEPS TO RUN 
+1. Edit and Run 'mlepAwsInit'.
+2. Run 'mlepInitInstances(number_of_instances, type_of_instance)'.
+3. Use testWrite to change the input knobs.
+4. In a terminal window, run 'parametricpreprocessor test1.idf'.
+5. Copy all the generated files into idfs folder. 
+6. Run 'runExample'.
+7. Review Results.
