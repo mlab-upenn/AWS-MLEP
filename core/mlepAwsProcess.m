@@ -26,6 +26,7 @@ classdef mlepAwsProcess < handle
         secKey ={};
         indMap = [];
         status = 0;
+        ec2Inst = [];
         msg = '';
     end
     
@@ -46,7 +47,6 @@ classdef mlepAwsProcess < handle
     methods
         function obj = mlepAwsProcess()
             defaultSettings(obj);
-    %        customSettings(obj,keyPath,credPath,numOfInst);
         end
         
         function [status, msg] = start(obj)
@@ -89,10 +89,8 @@ classdef mlepAwsProcess < handle
             msg = '';
         end
         %%==============================================================
-        function [status, msg, amazonEC2Client] = initAWSInstance(obj, numInst)
-            for i=1:numInst
-                initAWSInstance(obj.ec2Client, obj.keyPath, obj.secGroup);
-            end
+        function [status, msg, amazonEC2Client] = initAWSInstance(obj, numInst, instType)
+            obj.ec2Inst = initAWSInstance(obj.ec2Client, numInst, obj.keyPath, obj.secGroup, instType);
         end         
         %%==============================================================
         function [status, msg, EC2_info] = getAWSInstanceInfo(obj)
@@ -102,31 +100,37 @@ classdef mlepAwsProcess < handle
             msg = '';
         end
         %%==============================================================
-        function removeFolderOnAws(obj)
+        function removeFolderOnAws(obj,rFolder)
             if ~isempty(obj.ec2Info)
-                obj.ec2Client = removeFolderOnAWS(obj.ec2Client, obj.ec2Info, obj.keyPath);
+                removeFolderOnAWS(obj.ec2Info, obj.keyPath, rFolder);
             else
                 error('Need to call first getAWSInstanceInfo');
             end
         end
         %%==============================================================
-        function status = pushToAWS(obj, dirName)
-            [obj.indMap] = pushToAWS(dirName, obj.ec2Client, obj.ec2Info, obj.keyPath);
+        function status = pushToAWS(obj, lFolder, rFolder)
+            [obj.indMap] = mlepPushToAWS(obj.ec2Info, obj.keyPath, lFolder, rFolder);
             status = 0;
         end
         %%==============================================================
-        function status = runSimulationOnAWS(obj)
-            obj.ec2Client = runSimulationOnAWS(obj.ec2Client, obj.ec2Info, obj.keyPath);
+        function status = runSimulationOnAWSep(obj, lFolder, rFolder)
+            mlepRunSimulation1(obj.ec2Info, obj.keyPath, lFolder, rFolder);
             status = 0;
         end
         %%==============================================================
-        function status = moveFileOnAWS(obj)
-            obj.ec2Client = moveFileOnAWS(obj.ec2Client, obj.ec2Info, obj.keyPath);
+        function status = runSimulationOnAWSmlep(obj, rFolder)
+            mlepRunSimulation2(obj.ec2Client, obj.ec2Info, obj.keyPath, rFolder, 'true');
             status = 0;
         end
         %%==============================================================
-        function fetchDataOnAWS(obj)
-            obj.ec2Client = fetchDataOnAWS(obj.ec2Client, obj.ec2Info, obj.keyPath);
+        function status = moveFileOnAWS(obj, rFolder)
+            mlepMoveFileOnAWS(obj.ec2Info, obj.keyPath, rFolder);
+            status = 0;
+        end
+        %%==============================================================
+        function status = fetchDataOnAWS(obj, rFolder)
+            mlepFetchDataOnAWS(obj.ec2Info, obj.keyPath, rFolder);
+            status = 0;
         end
         %%==============================================================
         function delete(obj)
@@ -181,21 +185,23 @@ classdef mlepAwsProcess < handle
                 obj.secGroup = MLEPAWSSETTINGS.secGroup;
             end            
         end
-        function customSettings(obj,credPath, keyPath, numOfInst)
-            global MLEPAWSSETTINGS
-            
-            noSettings = isempty(MLEPAWSSETTINGS) || ~isstruct(MLEPAWSSETTINGS);
-            if noSettings
-                % Try to run mlepInit
-                if exist('mlepInit', 'file') == 2
-                    mlepInit;
-                    noSettings = isempty(MLEPAWSSETTINGS) || ~isstruct(MLEPAWSSETTINGS);
-                end
-            end
-            obj.keyPath = keyPath;
-            obj.credPath = credPath;
-            obj.numOfInst = numOfInst;
-        end
+        
+%         function customSettings(obj,credPath, keyPath, numOfInst)
+%             global MLEPAWSSETTINGS
+%             
+%             noSettings = isempty(MLEPAWSSETTINGS) || ~isstruct(MLEPAWSSETTINGS);
+%             if noSettings
+%                 % Try to run mlepInit
+%                 if exist('mlepInit', 'file') == 2
+%                     mlepInit;
+%                     noSettings = isempty(MLEPAWSSETTINGS) || ~isstruct(MLEPAWSSETTINGS);
+%                 end
+%             end
+%             obj.keyPath = keyPath;
+%             obj.credPath = credPath;
+%             obj.numOfInst = numOfInst;
+%         end
+
     end
 end
 
