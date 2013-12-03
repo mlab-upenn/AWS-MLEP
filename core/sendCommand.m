@@ -8,16 +8,17 @@ jsch.setConfig('StrictHostKeyChecking', 'no');
 % enter your own EC2 instance IP here
 publicDnsName = strtrim(publicDnsName);
 session=jsch.getSession('ubuntu', publicDnsName, 22);
-session.connect();
+session.connect(30000);
 
 % run stuff
 command = cmd;
 channel = session.openChannel('exec');
 channel.setCommand(command);
 channel.setErrStream(java.lang.System.err);
-channel.connect();
+
 
 input = channel.getInputStream();
+channel.connect(30000);
 % start reading the input from the executed commands on the shell
 str = ones(1,200);
 while (true)

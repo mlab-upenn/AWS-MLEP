@@ -12,9 +12,10 @@ function [ idxIndividualSelected ] = selection( fitness, population )
 %   INPUT   fitness     fitness of each individual in current generation
 %           population  the number of individuals(chromosomes) in one generation
 %   OUTPUT  idxIndividualSelected   index of the selected individuals 
-fitness = round(fitness * 10);
+scale = 10;
+fitness = round(fitness * scale);
 [sortedFitness idx] = sort(fitness);
-fitness(idx(1:round(population / 10))) = 0;
+fitness(idx(1:round(population / scale))) = 0;
 
 pool = zeros(1,sum(fitness));
 poolFillPos = 1;

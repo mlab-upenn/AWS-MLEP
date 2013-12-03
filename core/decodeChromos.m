@@ -4,7 +4,7 @@ function [ data ] = decodeChromos( strChromos,rangeBit )
 data = zeros(size(strChromos,2) / rangeBit, size(strChromos,1));
 for i = 1:size(strChromos,1)
     for j = 1:size(strChromos,2) / rangeBit
-        data(j,i) = bin2dec(strChromos(i,(((j-1)*5+1):j*5)));
+        data(j,i) = bin2dec(strChromos(i,(((j-1)*rangeBit+1):j*rangeBit)));
         
     end
 

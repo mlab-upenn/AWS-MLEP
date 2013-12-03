@@ -15,6 +15,7 @@ chromosomes_recombined = zeros(size(chromosomes_tobeRecom));
 
 
 crossPoints = randi([1,chromoLen],[size(chromosomes_tobeRecom,1)/2, size(chromosomes_tobeRecom,2)]);
+crossPoints = round(crossPoints/chromoLen) * 5;
 for i = 1:2:size(chromosomes_tobeRecom,1)
 %     i
     for j = 1:size(chromosomes_tobeRecom,2)

@@ -13,8 +13,12 @@ function fitness = getFitness(comfort, powConsume)
 %            expect             The expected result? or the expected total delay                  
 %   OUTPUT   fitness            Each individual's fitness
 
+% expect = 45000;
+% fitness = expect./(mean(comfort .* powConsume) - expect);
 
-fitness = 1/(comfort * powConsume);
+expect = 5500;
+% fitness = 10 * (expect ./(mean(powConsume)) - 1);
+fitness= expect./(mean(powConsume) - expect);
 end
 
 

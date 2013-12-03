@@ -1,4 +1,4 @@
-function [ strChromos, chromoLen ] = genChromosomes( data,rangeBit )
+function [ strChromos, chromoLen ] = encodeChromosomes( data,rangeBit )
 %GENCHROMOSOME Summary of this function goes here
 %   Detailed explanation goes here
 
