@@ -254,7 +254,7 @@ for i = 1:gen
     recombinedChromosome = recombinationaAll(oneGen(sel,:), chromoLen,rangeBit);
     oneGen = mutation(recombinedChromosome, chromoLen);
     genTXTSchedule(oneGen, chromoLen, rangeBit, offset);
-    mean(fitness);
+    mean(fitness)
     save schedule allSchedule;
     save data allData;
 

@@ -1,6 +1,6 @@
 clear;
-gen = 90;
-pop = 18;
+gen = 100;
+pop = 24;
 numVar = 1;
 numStep = 10;
 rangeBit = 10;
