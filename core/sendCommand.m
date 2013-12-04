@@ -26,6 +26,7 @@ channel = session.openChannel('exec');
 channel.setCommand(command);
 channel.setErrStream(java.lang.System.err);
 
+
 % check to display output stream
 if feed
     input = channel.getInputStream();
@@ -42,34 +43,18 @@ if feed
                 if (i < 0)
                     break;
                 end
-=======
-input = channel.getInputStream();
-channel.connect(30000);
-% start reading the input from the executed commands on the shell
-str = ones(1,200);
-while (true)
-    while (input.available() > 0)
-        i = 1;
-        cnt = 0;
-        while (i > 0)
-            i = input.read();
-            cnt = cnt+1;
-            str(cnt) = i;
-            if (i < 0)
+                disp(char(str(1:cnt-1)));
+            end
+            
+            if (channel.isClosed())
+                disp(java.lang.String(['exit-status: ' num2str(channel.getExitStatus())]));
                 break;
             end
-            disp(char(str(1:cnt-1)));
+            
         end
-        
-        if (channel.isClosed())
-            disp(java.lang.String(['exit-status: ' num2str(channel.getExitStatus())]));
-            break;
-        end
-        
     end
-end
-
-% disconnect
-channel.disconnect();
-session.disconnect();
+    
+    % disconnect
+    channel.disconnect();
+    session.disconnect();
 end
